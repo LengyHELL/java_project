@@ -63,9 +63,12 @@ class Bolt {
   public String toString(Reszleg reszleg) {
     String kimenet = "";
     for (int i = 0; i < termekek.size(); ++i) {
-      if ((termekek.get(i).getReszleg() == reszleg) || (reszleg == Reszleg.NINCS)) {
+      if (termekek.get(i).getReszleg() == reszleg) {
         kimenet += termekek.get(i).toString() + "\n";
       }
+    }
+    if (kimenet.length() > 0) {
+      kimenet = "-" + reszleg.getNev() + "-\n" + kimenet;
     }
     return kimenet;
   }
@@ -76,7 +79,6 @@ class Bolt {
       if (r != Reszleg.NINCS) {
         String temp = toString(r);
         if (temp.length() > 0) {
-          kimenet += "-" + r.getNev() + "-\n";
           kimenet += temp + "\n";
         }
       }
