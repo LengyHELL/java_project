@@ -7,10 +7,10 @@ class Etel extends Termek {
   }
 
   public String toString() {
-    return String.format("| %-20s | %-10s | %-15s | %-10s |",
-    getNev(),
-    String.valueOf(getAr()) + " Ft",
-    getReszleg().getNev(),
-    iz.getNev());
+    return super.toString() + String.format("\n%5s| %-10s %-10s |", "", "Iz:", iz.getNev());
+  }
+
+  public boolean keres(String mit) {
+    return super.keres(mit) || (iz.getNev().indexOf(mit) >= 0);
   }
 }

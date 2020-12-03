@@ -1,12 +1,12 @@
 public enum Reszleg {
-  NINCS("nincs"),
-  PEKARU("pekaru"),
-  HUS("hus"),
-  TEJ("tejtermek"),
-  ZOLDSEG("zoldseg"),
-  KEKSZ("keksz"),
-  SZESZES("szeszesital"),
-  ELEKTRONIKAI("elektronikai");
+  NINCS("Nincs"),
+  PEKARU("Pekaru"),
+  HUS("Hus"),
+  TEJ("Tejtermek"),
+  ZOLDSEG("Zoldseg"),
+  KEKSZ("Keksz"),
+  SZESZES("Szeszesital"),
+  ELEKTRONIKAI("Elektronikai");
 
   private String nev;
 

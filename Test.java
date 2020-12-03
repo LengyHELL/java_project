@@ -15,11 +15,11 @@ class Test {
     System.out.println(bolt.bejaras());
     System.out.println(bolt.osszegar());
 
-    List talalat = bolt.altalanosKereses("tej");
+    List talalat = bolt.altalanosKereses("Tej");
     for (int i = 0; i < talalat.size(); ++i) {
       System.out.println(talalat.get(i).toString());
     }
-    
+
     bolt.eltavolit("Tej");
     bolt.eltavolit(sajt);
     System.out.println(bolt.osszegar());

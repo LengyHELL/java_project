@@ -9,11 +9,12 @@ class TartosCikk extends Termek {
   }
 
   public String toString() {
-    return String.format("| %-20s | %-10s | %-15s | %-10s | %-10s |",
-      getNev(),
-      String.valueOf(getAr()) + " Ft",
-      getReszleg().getNev(),
-      gyarto,
-      String.valueOf(garancia) + " ev");
+    return super.toString() +
+      String.format("\n%5s| %-10s %-10s |\n%5s| %-10s %-10s |",
+      "", "Gyarto: ", gyarto, "", "Garancia: ", String.valueOf(garancia) + " ev");
+  }
+
+  public boolean keres(String mit) {
+    return super.keres(mit) || (gyarto.indexOf(mit) >= 0) || (String.valueOf(garancia).indexOf(mit) >= 0);
   }
 }

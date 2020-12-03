@@ -9,11 +9,12 @@ class Ital extends Termek {
   }
 
   public String toString() {
-    return String.format("| %-20s | %-10s | %-15s | %-10s | %-10s |",
-      getNev(),
-      String.valueOf(getAr()) + " Ft",
-      getReszleg().getNev(),
-      marka,
-      String.format("%.2f", alkohol) + " %");
+    return super.toString() +
+      String.format("\n%5s| %-10s %-10s |\n%5s| %-10s %-10s |",
+      "", "Marka: ", marka, "", "Alk.: ", String.format("%.2f", alkohol) + " %");
+  }
+
+  public boolean keres(String mit) {
+    return super.keres(mit) || (marka.indexOf(mit) >= 0) || (String.valueOf(alkohol).indexOf(mit) >= 0);
   }
 }

@@ -76,7 +76,7 @@ class Bolt {
       if (r != Reszleg.NINCS) {
         String temp = toString(r);
         if (temp.length() > 0) {
-          kimenet += r.getNev() + "\n";
+          kimenet += "-" + r.getNev() + "-\n";
           kimenet += temp + "\n";
         }
       }
@@ -87,8 +87,7 @@ class Bolt {
   public List<Termek> altalanosKereses(String mit) {
     ArrayList<Termek> talalat = new ArrayList<Termek>();
     for (int i = 0; i < termekek.size(); ++i) {
-      String temp = termekek.get(i).toString();
-      if (temp.indexOf(mit) != -1) {
+      if (termekek.get(i).keres(mit)) {
         talalat.add(termekek.get(i));
       }
     }

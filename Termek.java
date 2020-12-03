@@ -10,7 +10,13 @@ class Termek {
   }
 
   public String toString() {
-    return String.format("| %-20s | %-10s | %-15s |", nev, String.valueOf(ar) + " Ft", reszleg.getNev());
+    return String.format("  | %-20s | %-10s | %-15s |", nev, String.valueOf(ar) + " Ft", reszleg.getNev());
+  }
+
+  public boolean keres(String mit) {
+    return (nev.indexOf(mit) >= 0) ||
+      (String.valueOf(ar).indexOf(mit) >= 0) ||
+      (reszleg.getNev().indexOf(mit) >= 0);
   }
 
   public String getNev() { return nev; }
