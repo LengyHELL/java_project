@@ -50,4 +50,12 @@ class Bolt {
     }
     return osszeg;
   }
+
+  public String toString() {
+    String kimenet = "";
+    for (int i = 0; i < termekek.size(); ++i) {
+      kimenet += termekek.get(i).toString() + "\n";
+    }
+    return kimenet;
+  }
 }

@@ -6,6 +6,7 @@ class Test {
     bolt.hozzaad(new Termek("Tej", 300, Reszleg.TEJ));
     bolt.hozzaad(new Etel("Oreo", 520, Reszleg.KEKSZ, Iz.EDES));
     bolt.hozzaad(sajt);
+    System.out.println(bolt.toString());
     System.out.println(bolt.osszegar());
 
     bolt.eltavolit("Tej");
