@@ -1,6 +1,6 @@
 import java.util.List;
 
-class Test {
+class Teszt {
   public static void main(String args[]) {
     Bolt bolt = new Bolt("asd", "fgh");
     Termek sajt = new Etel("Trappista", 1100, Reszleg.TEJ, Iz.SOS);
