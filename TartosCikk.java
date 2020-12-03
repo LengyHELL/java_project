@@ -7,4 +7,13 @@ class TartosCikk extends Termek {
     gyarto = _gyarto;
     garancia = _garancia;
   }
+
+  public String toString() {
+    return String.format("| %-20s | %-10s | %-15s | %-10s | %-10s |",
+      getNev(),
+      String.valueOf(getAr()) + " Ft",
+      getReszleg().getNev(),
+      gyarto,
+      String.valueOf(garancia) + " ev");
+  }
 }
