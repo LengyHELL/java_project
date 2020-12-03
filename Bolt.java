@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.ArrayList;
 
 class Bolt {
@@ -57,5 +58,40 @@ class Bolt {
       kimenet += termekek.get(i).toString() + "\n";
     }
     return kimenet;
+  }
+
+  public String toString(Reszleg reszleg) {
+    String kimenet = "";
+    for (int i = 0; i < termekek.size(); ++i) {
+      if ((termekek.get(i).getReszleg() == reszleg) || (reszleg == Reszleg.NINCS)) {
+        kimenet += termekek.get(i).toString() + "\n";
+      }
+    }
+    return kimenet;
+  }
+
+  public String bejaras() {
+    String kimenet = "";
+    for (Reszleg r : Reszleg.values()) {
+      if (r != Reszleg.NINCS) {
+        String temp = toString(r);
+        if (temp.length() > 0) {
+          kimenet += r.getNev() + "\n";
+          kimenet += temp + "\n";
+        }
+      }
+    }
+    return kimenet;
+  }
+
+  public List<Termek> altalanosKereses(String mit) {
+    ArrayList<Termek> talalat = new ArrayList<Termek>();
+    for (int i = 0; i < termekek.size(); ++i) {
+      String temp = termekek.get(i).toString();
+      if (temp.indexOf(mit) != -1) {
+        talalat.add(termekek.get(i));
+      }
+    }
+    return talalat;
   }
 }
