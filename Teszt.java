@@ -1,38 +1,82 @@
+/*
+  Keszitette: Lengyel Mark (LNXQYO)
+  Tantargy:   Java programozas (GKNB_INTM037)
+  GitHub:     https://github.com/LengyHELL/java_project
+*/
+
 import java.util.List;
+import java.util.Scanner;
 
 class Teszt {
   public static void main(String args[]) {
     try {
-      Bolt bolt = new Bolt("asd", "fgh");
-      Termek sajt = new Etel("Trappista", 1100, Reszleg.TEJ, Iz.SOS);
 
-      bolt.hozzaad(new Termek("Tej", 300, Reszleg.TEJ));
-      bolt.hozzaad(new Etel("Oreo", 520, Reszleg.KEKSZ, Iz.EDES));
-      bolt.hozzaad(sajt);
-      bolt.hozzaad(new TartosCikk("Monitor", 50000, Reszleg.ELEKTRONIKAI, "Samsung", 2));
-      bolt.hozzaad(new Ital("Bor", 1200, Reszleg.SZESZES, "Tokaji", 5.2345));
-      System.out.println(bolt.toString());
-      System.out.println(bolt.toString(Reszleg.TEJ));
-      System.out.println(bolt.bejaras());
-      System.out.println(bolt.osszegar());
+      Ital tej = new Ital("Tej", 290, Reszleg.TEJ, "Mizo", 0);
 
-      bolt.mentes();
+      Bolt tesco = new Bolt("Tesco", "");
+      tesco.hozzaad(new Ital("Asvanyviz", 60, Reszleg.VIZ, "Mizse", 0));
+      tesco.hozzaad(new Ital("Szoda", 45, Reszleg.VIZ, "Szoda", 0));
+      tesco.hozzaad(new Termek("Csirke comb", 750, Reszleg.HUS));
+      tesco.hozzaad(new Termek("Daralt hus", 1200, Reszleg.HUS));
+      tesco.hozzaad(new Ital("Kola", 310, Reszleg.UDITO, "Coca Cola", 0));
+      tesco.hozzaad(new Etel("Zsemle", 50, Reszleg.PEKARU, Iz.SOS));
+      tesco.hozzaad(tej);
 
-      List talalat = bolt.altalanosKereses("Tokaj");
+      System.out.println(tesco.getNev() + "\n");
+      System.out.println(tesco.bejaras());
+      System.out.println("Osszesen: " + String.valueOf(tesco.osszegar()) + " Ft\n");
+
+      Bolt spar = new Bolt("Spar", "");
+      spar.hozzaad(new Termek("Paradicsom", 100, Reszleg.ZOLDSEG));
+      spar.hozzaad(new Termek("Salata", 120, Reszleg.ZOLDSEG));
+      spar.hozzaad(new Termek("Barack", 150, Reszleg.GYUMOLCS));
+      spar.hozzaad(new Ital("Bor", 1200, Reszleg.SZESZES, "Tokaji", 18.322));
+      spar.hozzaad(new Ital("Sor", 350, Reszleg.SZESZES, "Soproni", 5));
+      spar.hozzaad(new Etel("Ropi", 200, Reszleg.NINCS, Iz.SOS));
+      spar.hozzaad(new Etel("Milka csoki", 250, Reszleg.NINCS, Iz.EDES));
+
+      System.out.println(spar.getNev() + "\n");
+      System.out.println(spar.bejaras());
+      System.out.println("Osszesen: " + String.valueOf(spar.osszegar()) + " Ft\n");
+
+      Bolt obi = new Bolt("OBI", "");
+      obi.hozzaad(new TartosCikk("Villanykorte", 1300, Reszleg.ELEKTRONIKAI, "Osram", 1));
+      obi.hozzaad(new TartosCikk("Karacsonyfa", 69999, Reszleg.SZORAKOZTATO, "Fenyo", 2));
+      obi.hozzaad(new Termek("Falfestek", 5000, Reszleg.EPITES));
+
+      System.out.println(obi.getNev() + "\n");
+      System.out.println(obi.bejaras());
+      System.out.println("Osszesen: " + String.valueOf(obi.osszegar()) + " Ft\n");
+
+      Bolt mediamarkt = new Bolt("Media Markt", "");
+      mediamarkt.hozzaad(new TartosCikk("Billentyuzet", 11000, Reszleg.ELEKTRONIKAI, "Asus", 4));
+      mediamarkt.hozzaad(new TartosCikk("Eger", 7500, Reszleg.ELEKTRONIKAI, "Razer", 2));
+      mediamarkt.hozzaad(new TartosCikk("Monitor", 140000, Reszleg.ELEKTRONIKAI, "Samsung", 2));
+      mediamarkt.hozzaad(new TartosCikk("Porszivo", 45000, Reszleg.HAZTARTASI, "Samsung", 2));
+
+      System.out.println(mediamarkt.getNev() + "\n");
+      System.out.println(mediamarkt.bejaras());
+      System.out.println("Osszesen: " + String.valueOf(mediamarkt.osszegar()) + " Ft\n");
+
+      System.out.println("\nMinden bolt osszesen: " +
+        String.valueOf(tesco.osszegar() + spar.osszegar() + obi.osszegar() + mediamarkt.osszegar()) + " Ft\n");
+
+      Scanner input = new Scanner(System.in);
+      System.out.println("Adja meg a keresett szot:");
+      String mit = input.nextLine();
+      System.out.println("Talalat:");
+
+      List<Termek> talalat = tesco.altalanosKereses(mit);
+      talalat.addAll(spar.altalanosKereses(mit));
+      talalat.addAll(obi.altalanosKereses(mit));
+      talalat.addAll(mediamarkt.altalanosKereses(mit));
+
       for (int i = 0; i < talalat.size(); ++i) {
         System.out.println(talalat.get(i).toString());
       }
 
-      List talalat2 = bolt.alkoholosTermekek();
-      for (int i = 0; i < talalat2.size(); ++i) {
-        System.out.println(talalat2.get(i).toString());
-      }
-
-      bolt.eltavolit("Tej");
-      bolt.eltavolit(sajt);
-      System.out.println(bolt.osszegar());
-
-      sajt.setAr(0);
+      // triggering exception
+      tej.setAr(0);
     }
     catch (Exception e) {
       e.printStackTrace();
