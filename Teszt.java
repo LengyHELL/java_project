@@ -13,7 +13,7 @@ class Teszt {
 
       Ital tej = new Ital("Tej", 290, Reszleg.TEJ, "Mizo", 0);
 
-      Bolt tesco = new Bolt("Tesco", "");
+      Bolt tesco = new Bolt("Tesco", "Gyor, Szigethy Attila ut 112, 9023");
       tesco.hozzaad(new Ital("Asvanyviz", 60, Reszleg.VIZ, "Mizse", 0));
       tesco.hozzaad(new Ital("Szoda", 45, Reszleg.VIZ, "Szoda", 0));
       tesco.hozzaad(new Termek("Csirke comb", 750, Reszleg.HUS));
@@ -26,7 +26,7 @@ class Teszt {
       System.out.println(tesco.bejaras());
       System.out.println("Osszesen: " + String.valueOf(tesco.osszegar()) + " Ft\n");
 
-      Bolt spar = new Bolt("Spar", "");
+      Bolt spar = new Bolt("Spar", "Gyor, Ronay Jacint u. 14, 9026");
       spar.hozzaad(new Termek("Paradicsom", 100, Reszleg.ZOLDSEG));
       spar.hozzaad(new Termek("Salata", 120, Reszleg.ZOLDSEG));
       spar.hozzaad(new Termek("Barack", 150, Reszleg.GYUMOLCS));
@@ -39,7 +39,7 @@ class Teszt {
       System.out.println(spar.bejaras());
       System.out.println("Osszesen: " + String.valueOf(spar.osszegar()) + " Ft\n");
 
-      Bolt obi = new Bolt("OBI", "");
+      Bolt obi = new Bolt("OBI", "Gyor, Fehervari ut 3, 9023");
       obi.hozzaad(new TartosCikk("Villanykorte", 1300, Reszleg.ELEKTRONIKAI, "Osram", 1));
       obi.hozzaad(new TartosCikk("Karacsonyfa", 69999, Reszleg.SZORAKOZTATO, "Fenyo", 2));
       obi.hozzaad(new Termek("Falfestek", 5000, Reszleg.EPITES));
@@ -48,7 +48,7 @@ class Teszt {
       System.out.println(obi.bejaras());
       System.out.println("Osszesen: " + String.valueOf(obi.osszegar()) + " Ft\n");
 
-      Bolt mediamarkt = new Bolt("Media Markt", "");
+      Bolt mediamarkt = new Bolt("Media Markt", "Gyor, Budai ut 1, 9027");
       mediamarkt.hozzaad(new TartosCikk("Billentyuzet", 11000, Reszleg.ELEKTRONIKAI, "Asus", 4));
       mediamarkt.hozzaad(new TartosCikk("Eger", 7500, Reszleg.ELEKTRONIKAI, "Razer", 2));
       mediamarkt.hozzaad(new TartosCikk("Monitor", 140000, Reszleg.ELEKTRONIKAI, "Samsung", 2));
@@ -57,6 +57,11 @@ class Teszt {
       System.out.println(mediamarkt.getNev() + "\n");
       System.out.println(mediamarkt.bejaras());
       System.out.println("Osszesen: " + String.valueOf(mediamarkt.osszegar()) + " Ft\n");
+
+      tesco.mentes();
+      spar.mentes();
+      obi.mentes();
+      mediamarkt.mentes();
 
       System.out.println("\nMinden bolt osszesen: " +
         String.valueOf(tesco.osszegar() + spar.osszegar() + obi.osszegar() + mediamarkt.osszegar()) + " Ft\n");
@@ -75,7 +80,7 @@ class Teszt {
         System.out.println(talalat.get(i).toString());
       }
 
-      // triggering exception
+      // triggering exception on purpose
       tej.setAr(0);
     }
     catch (Exception e) {
