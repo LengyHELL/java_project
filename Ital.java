@@ -2,7 +2,7 @@ class Ital extends Termek {
   private String marka;
   private double alkohol;
 
-  public Ital(String _nev, int _ar, Reszleg _reszleg, String _marka, double _alkohol) {
+  public Ital(String _nev, int _ar, Reszleg _reszleg, String _marka, double _alkohol) throws Exception {
     super(_nev, _ar, _reszleg);
     marka = _marka;
     alkohol = _alkohol;
@@ -17,4 +17,6 @@ class Ital extends Termek {
   public boolean keres(String mit) {
     return super.keres(mit) || (marka.indexOf(mit) >= 0) || (String.valueOf(alkohol).indexOf(mit) >= 0);
   }
+
+  public double getAlkohol() { return alkohol; }
 }

@@ -3,9 +3,9 @@ class Termek {
   private int ar = 0;
   private Reszleg reszleg = Reszleg.NINCS;
 
-  public Termek(String _nev, int _ar, Reszleg _reszleg) {
+  public Termek(String _nev, int _ar, Reszleg _reszleg) throws Exception {
     nev = _nev;
-    ar = _ar;
+    setAr(_ar);
     reszleg = _reszleg;
   }
 
@@ -22,4 +22,13 @@ class Termek {
   public String getNev() { return nev; }
   public int getAr() { return ar; }
   public Reszleg getReszleg() { return reszleg; }
+
+  public void setAr(int _ar) throws Exception {
+    if (_ar <= 0) {
+      throw new Exception("A megadott ar tul alacsony!");
+    }
+    else {
+      ar = _ar;
+    }
+  }
 }
