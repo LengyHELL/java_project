@@ -1,6 +1,10 @@
 import java.util.List;
 import java.util.ArrayList;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 class Bolt {
   private String nev;
   private String cim;
@@ -95,4 +99,38 @@ class Bolt {
     }
     return talalat;
   }
+
+  public List<Termek> alkoholosTermekek() {
+    ArrayList<Termek> talalat = new ArrayList<Termek>();
+    for (int i = 0; i < termekek.size(); ++i) {
+      if (termekek.get(i) instanceof Ital) {
+        Ital ital = (Ital)termekek.get(i);
+        if (ital.getAlkohol() > 0) {
+          talalat.add(termekek.get(i));
+        }
+      }
+    }
+    return talalat;
+  }
+
+  public void mentes() {
+    try {
+      String fajlnev = "Bevasarlolista_" + getNev() + ".txt";
+      File fajl = new File(fajlnev);
+      if (fajl.createNewFile()) {
+        FileWriter fajlIro = new FileWriter(fajlnev);
+        fajlIro.write(bejaras());
+        fajlIro.write("Osszesen: " + String.valueOf(osszegar()) + " Ft");
+        fajlIro.close();
+      }
+      else {
+        System.out.println("A '" + fajlnev + "' fajl mar letezik!");
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public String getNev() { return nev; }
 }
