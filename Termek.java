@@ -1,3 +1,9 @@
+/*
+  Keszitette: Lengyel Mark (LNXQYO)
+  Tantargy:   Java programozas (GKNB_INTM037)
+  GitHub:     https://github.com/LengyHELL/java_project
+*/
+
 class Termek {
   private String nev = "";
   private int ar = 0;

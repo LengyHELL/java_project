@@ -1,3 +1,9 @@
+/*
+  Keszitette: Lengyel Mark (LNXQYO)
+  Tantargy:   Java programozas (GKNB_INTM037)
+  GitHub:     https://github.com/LengyHELL/java_project
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -80,11 +86,9 @@ class Bolt {
   public String bejaras() {
     String kimenet = "";
     for (Reszleg r : Reszleg.values()) {
-      if (r != Reszleg.NINCS) {
-        String temp = toString(r);
-        if (temp.length() > 0) {
-          kimenet += temp + "\n";
-        }
+      String temp = toString(r);
+      if (temp.length() > 0) {
+        kimenet += temp + "\n";
       }
     }
     return kimenet;

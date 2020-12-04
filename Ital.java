@@ -1,3 +1,9 @@
+/*
+  Keszitette: Lengyel Mark (LNXQYO)
+  Tantargy:   Java programozas (GKNB_INTM037)
+  GitHub:     https://github.com/LengyHELL/java_project
+*/
+
 class Ital extends Termek {
   private String marka;
   private double alkohol;

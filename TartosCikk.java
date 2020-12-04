@@ -1,3 +1,9 @@
+/*
+  Keszitette: Lengyel Mark (LNXQYO)
+  Tantargy:   Java programozas (GKNB_INTM037)
+  GitHub:     https://github.com/LengyHELL/java_project
+*/
+
 class TartosCikk extends Termek {
   private String gyarto;
   private int garancia;
